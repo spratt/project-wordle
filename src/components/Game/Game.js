@@ -41,7 +41,7 @@ function Game() {
                {/* Header */}
                {/* Board */}
                <div className="guess-results">
-                   {guesses.map((guess) => (<Guess key={guess.key} value={guess.text} />))}
+                   {guesses.map((guess) => (<Guess key={guess.key} value={guess.text} correctAnswer={answer} />))}
                </div>
                {/* GuessInput */}
                <GuessInput makeGuess={makeGuess} />

@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { checkGuess } from '../../game-helpers';
+
 /*
 ex2 Acceptance Criteria:
 
@@ -14,13 +16,26 @@ ex3 Acceptance Criteria:
     [X] Each cell should contain a letter, if the Guess instance has been given a value. If not, the cell should be blank.
     [X] Use the NUM_OF_GUESSES_ALLOWED constant, when needed.
     [X] No key warnings in the console.
+ 
+ex4 Acceptance Criteria:
+
+    [X] Import the checkGuess function from /src/game-helpers.js, and use it to validate each of the user's guesses
+    [X] When rendering the letters in the Guess component, apply the letter's status to the cell element.
+    [X] "Empty" guess slots should have the same markup as before: <span class="cell"></span>.
+
 */
 
-function Guess({ value }) {
+function Guess({ value, correctAnswer }) {
     return (<p className="guess">
-                {value.split('').map((letter, index) => (
-                    <span key={index} className="cell">{letter}</span>
-                ))}
+                {checkGuess(value, correctAnswer).map((letter, index) => {
+                    let classes = "cell";
+                    if (letter.letter != ' ') {
+                        classes += " " + letter.status;
+                    }
+                    return (
+                        <span key={index} className={classes}>{letter.letter}</span>
+                    );
+                })}
             </p>);
 }
 
