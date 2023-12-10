@@ -1,8 +1,7 @@
 import React from 'react';
 
 /*
-
-  Acceptance Criteria:
+ex1 Acceptance Criteria:
 
     [X] Create a new component.
         [X] Don't forget, you can use an NPM script to generate the scaffolding for you! We learn how to do this in the “Getting Started” video
@@ -34,8 +33,8 @@ function GuessInput({ makeGuess }) {
         }
     }
     
-    return (<form class="guess-input-wrapper" onSubmit={submitGuess}>
-               <label for="guess-input">Enter guess:</label>
+    return (<form className="guess-input-wrapper" onSubmit={submitGuess}>
+               <label htmlFor="guess-input">Enter guess:</label>
                 <input id="guess-input" type="text" pattern="\w{5}" value={ guess } onChange={() => changeGuess(event.target.value)} />
             </form>);
 }
