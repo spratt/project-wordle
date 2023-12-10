@@ -16,7 +16,7 @@ ex1 Acceptance Criteria:
 
  */
 
-function GuessInput({ makeGuess }) {
+function GuessInput({ makeGuess, disabled }) {
     const [guess, setGuess] = React.useState('');
 
     function changeGuess(value) {
@@ -35,7 +35,7 @@ function GuessInput({ makeGuess }) {
     
     return (<form className="guess-input-wrapper" onSubmit={submitGuess}>
                <label htmlFor="guess-input">Enter guess:</label>
-                <input id="guess-input" type="text" pattern="\w{5}" value={ guess } onChange={() => changeGuess(event.target.value)} />
+                <input id="guess-input" type="text" pattern="\w{5}" value={ guess } onChange={() => changeGuess(event.target.value)} disabled={disabled} />
             </form>);
 }
 
